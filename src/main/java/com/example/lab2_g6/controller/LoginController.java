@@ -27,12 +27,12 @@ public class LoginController {
     @PostMapping("/inicioSesion")
     public String verificarLogin(@RequestParam("correo") String correo,
                                  @RequestParam("contrasena") String contrasena){
-        List<User> userName = userRepository.encontrarUsuario(correo, contrasena);
+        User user = userRepository.encontrarUsuario(correo, contrasena);
 
-        if (userName.get(0) != null) {
-            return "redirect:/cripto/listar";
+        if (user != null) {
+            return "principal";
         }else{
-            return "inicio2";
+            return "redirect:/login/inicio";
         }
     }
 }

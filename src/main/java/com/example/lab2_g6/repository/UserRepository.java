@@ -9,5 +9,5 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer>{
     @Query(value = "select * from user\n" +
             "where username = (?1) and password = (?2);",nativeQuery = true)
-    List<User> encontrarUsuario(String correo, String contrasena);
+    User encontrarUsuario(String correo, String contrasena);
 }
