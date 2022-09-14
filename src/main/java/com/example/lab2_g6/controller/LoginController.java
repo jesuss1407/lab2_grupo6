@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,11 +27,12 @@ public class LoginController {
     @PostMapping("/inicioSesion")
     public String verificarLogin(@RequestParam("correo") String correo,
                                  @RequestParam("contrasena") String contrasena){
-        //Optional<User> optProduct = userRepository.encontrarUsuario(correo, contrasena);
+        List<User> userName = userRepository.encontrarUsuario(correo, contrasena);
 
-        if (optProduct.isPresent()) {
-            productRepository.deleteById(id);
+        if (userName.get(0) != null) {
+            return "redirect:/cripto/listar";
+        }else{
+            return "inicio2";
         }
-        return "redirect";
     }
 }
