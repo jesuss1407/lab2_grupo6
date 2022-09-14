@@ -34,11 +34,7 @@ public class TransactionController {
     public String nuevoProductoFrm(Model model) {
 
         model.addAttribute("listaCriptomonedas", currencyRepository.findAll());
-        model.addAttribute("listaNtransacciones",transactionRepository.numeroTransaccion());
-        /*model.addAttribute("listaNetwork",transactionRepository.buscarNetwork());*/
-        /*model.addAttribute("listaTransacciones",transactionRepository.buscarTrapsactiones());*/
-        /* model.addAttribute("listaNtransacciones",transactionRepository.numeroTransaccion());*/
-        model.addAttribute("listaStatus",transactionRepository.buscarStatus());
+        model.addAttribute("listaWallet", walletRepository.findAll());
         return "form";
     }
 
@@ -60,8 +56,8 @@ public class TransactionController {
         return "transacciones";
     }
     @GetMapping("wallet")
-    public String wallet(Model model) {
-        model.addAttribute("listaWallet",walletRepository.obtenerMyWalletDto());
+    public String wallet(Model model, @RequestParam("id") int id) {
+        model.addAttribute("listaWallet",walletRepository.obtenerMyWalletDto(id));
         return "wallet";
     }
 
