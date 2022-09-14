@@ -60,16 +60,27 @@
         </div>
 
         <div class="row" th:class="row">
-                <div class="col-sm-6 mt-4 ml-2 mb-4" >
+                <div class="col-sm-6 mt-4 mb-4" >
                     <div class="card text-center border-white bg-transparent">
-                        <div class="card-body">
-                            <h5 class="card-title" ></h5>
-                            <p class="card-text" ></p>
-                            <p class="card-text" ></p>
-                            <p class="text-success h3"></p>
+                        <div class="card-body" th:each="cripto, info : ${criptoList}">
+                            <h5 class="card-title" th:text="${cripto.name + ' ('  + cripto.abbreviation +')'}  "></h5>
+                            <p class="card-text" th:text="${'Red: '+cripto.network}"></p>
+                            <p class="card-text" th:text="${cripto.description}"></p>
+                            <p class="text-success h3" th:text="${cripto.price} + ' BUSD'"></p>
                         </div>
                     </div>
                 </div>
+            <div class="col-sm-6 mt-4 ml-1 mb-4" >
+                <div class="card text-center border-white bg-transparent">
+                    <div class="card-body" th:each="cripto, info : ${criptoList}">
+                        <h5 class="card-title" th:text="${cripto.name + ' ('  + cripto.abbreviation +')'}  "></h5>
+                        <p class="card-text" th:text="${'Red: '+cripto.network}"></p>
+                        <p class="card-text" th:text="${cripto.description}"></p>
+                        <p class="text-success h3" th:text="${cripto.price} + ' BUSD'"></p>
+                    </div>
+                </div>
+            </div>
+
           </div>
     </div>
 </body>
