@@ -25,10 +25,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="TXID" class="form-label">txId</label>
-                        <select id="TXID" class="form-select" name="txId">
-                            <option th:each="txId: ${listaNtransacciones}"
-                                    th:text="${txId}"></option>
+                        <label for="txId" class="form-label">txId</label>
+                        <select id="txId" class="form-select" name="txId">
+                            <option th:each="txId , indice: ${listaNtransacciones}"
+                                    th:text="${txId}"
+                                    th:value="${txId}"></option>
                         </select>
                     </div>
 
@@ -51,10 +52,10 @@
                         <label for="status" class="form-label">status</label>
                         <select id="status" class="form-select" name="status">
                             <option th:each="status: ${listaStatus}"
-                                    th:text="${status.getStatus()}"
-                                    th:value="${status.getStatus()}"></option>
+                                    th:text="${status}"
+                                    th:value="${status}"></option>
                         </select>
-                    </div>
+                    </div>-->
 
 
                     <a th:href="@{'/transaccion/list'}" class="btn btn-danger">Cancelar</a>

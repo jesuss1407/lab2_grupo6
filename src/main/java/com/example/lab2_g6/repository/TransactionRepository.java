@@ -1,6 +1,7 @@
 package com.example.lab2_g6.repository;
 
 import com.example.lab2_g6.entity.Transaction;
+import jdk.jshell.Snippet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -17,7 +18,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
     List<Transaction> buscarCantidad();
 
     @Query(value = "select distinct status from transaction ", nativeQuery = true)
-    List<Transaction> buscarStatus();
+    List<String > buscarStatus();
 
     @Query(value = "select distinct  neetwork_free from transaction  ", nativeQuery = true)
     List<Transaction> buscarNetwork();
@@ -31,7 +32,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
     @Query(value = "select distinct block from transaction;", nativeQuery = true)
     List<Transaction> buscarTrapsactiones();
     @Query(value = "select distinct tx_id from transaction;", nativeQuery = true)
-    List<Transaction> numeroTransaccion();
+    List<String> numeroTransaccion();
 
 
 }
