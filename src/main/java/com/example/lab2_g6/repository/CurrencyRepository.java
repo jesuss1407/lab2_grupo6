@@ -1,4 +1,7 @@
 package com.example.lab2_g6.repository;
 
-public interface CurrencyRepository {
+import com.example.lab2_g6.entity.Currency;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CurrencyRepository extends JpaRepository<Currency, Integer> {
 }
