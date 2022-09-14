@@ -1,5 +1,6 @@
 package com.example.lab2_g6.controller;
 
+import com.example.lab2_g6.entity.Currency;
 import com.example.lab2_g6.repository.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +21,8 @@ public class CriptoController {
     @GetMapping("/listar")
     public String index(Model model){
 
-        List<Shipper> lista = CurrencyRepository.findAll();
-        model.addAttribute("shipperList", lista);
+        List<Currency> lista = CurrencyRepository.findAll();
+        model.addAttribute("criptoList", lista);
 
 
         return "principal";
