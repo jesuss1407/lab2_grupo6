@@ -28,7 +28,7 @@ public class TransactionController {
     public String nuevoProductoFrm(Model model) {
 
         model.addAttribute("listaCriptomonedas", currencyRepository.findAll());
-        /*model.addAttribute("listaNtransacciones",transactionRepository.numeroTransaccion());*/
+        model.addAttribute("listaNtransacciones",transactionRepository.numeroTransaccion());
         /*model.addAttribute("listaNetwork",transactionRepository.buscarNetwork());*/
         /*model.addAttribute("listaTransacciones",transactionRepository.buscarTrapsactiones());*/
         /* model.addAttribute("listaNtransacciones",transactionRepository.numeroTransaccion());*/
