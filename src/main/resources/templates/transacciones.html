@@ -22,6 +22,7 @@
 
 <table class="table table-dark table-striped">
   <tr>
+    <th class="text-center">#</th>
     <th class="text-center">TxID de Wallet</th>
     <th class="text-center">Cantidad Comprada</th>
     <th class="text-center">Tarifa de red</th>
@@ -37,6 +38,7 @@
     <td th:text="${transaption.getAmount()}" class="text-center" ></td>
     <td th:text="${transaption.getNeetworkFree()}" class="text-center" ></td>
     <td th:text="${transaption.getBlock()}" class="text-center" ></td>
+    <td th:text="${transaption.getCurrency()}" class="text-center" ></td>
     <td th:text="${transaption.getStatus()}" class="text-center" ></td>
     <td th:text="${transaption.getWalletIdwallet()}" class="text-center" ></td>
   </tr>
