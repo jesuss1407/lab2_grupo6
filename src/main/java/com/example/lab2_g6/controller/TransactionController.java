@@ -3,6 +3,7 @@ package com.example.lab2_g6.controller;
 import com.example.lab2_g6.entity.Transaction;
 import com.example.lab2_g6.repository.CurrencyRepository;
 import com.example.lab2_g6.repository.TransactionRepository;
+import com.example.lab2_g6.repository.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ import java.util.List;
 public class TransactionController {
     @Autowired
     TransactionRepository transactionRepository;
+    @Autowired
+    WalletRepository walletRepository;
     @Autowired
     CurrencyRepository currencyRepository;
     @GetMapping(value = {"/list"})
@@ -56,6 +59,10 @@ public class TransactionController {
 
         return "transacciones";
     }
-
+    @GetMapping("wallet")
+    public String wallet(Model model) {
+        model.addAttribute("listaWallet",walletRepository.obtenerMyWalletDto());
+        return "wallet";
+    }
 
 }

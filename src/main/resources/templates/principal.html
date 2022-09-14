@@ -17,7 +17,7 @@
 </head>
 <body >
     <div class="container">
-        <form action="/buscarCripto" method="post">
+        <form method="post" th:action="@{/transaccion/buscarTrans}">
         <div class="row mt-4">
             <div class="col-2">
                 <img th:src="@{/img/logo.png}" alt="Logo" height="150"/>
@@ -25,7 +25,7 @@
             <div class="col-1 mt-5">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" >Mi billetera</a>
+                        <a th:href="@{/transaccion/wallet}" class="nav-link" >Mi billetera</a>
                     </li>
                 </ul>
             </div>
@@ -33,13 +33,13 @@
 
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link ">Transacciones</a>
+                        <a th:href="@{/transaccion/list}" class="nav-link ">Transacciones</a>
                     </li>
                 </ul>
             </div>
 
                     <div class="col-5 mt-5">
-                        <input name="numeroTxID" class="form-control me-2 " type="search" placeholder="Buscar transacciones por TxID" aria-label="Search">
+                        <input name="searchField" class="form-control me-2 " type="search" placeholder="Buscar transacciones por TxID" aria-label="Search">
                     </div>
                     <div class="col-2 mt-5">
                         <button type="submit" class="btn btn-success">Buscar</button>

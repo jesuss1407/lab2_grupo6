@@ -18,7 +18,7 @@ public class CriptoController {
     @Autowired
     CurrencyRepository currencyRepository;
 
-    @GetMapping("/listar")
+    @GetMapping("")
     public String index(Model model){
 
         List<Currency> lista = currencyRepository.findAll();

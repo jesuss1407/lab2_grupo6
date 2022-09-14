@@ -26,11 +26,7 @@
 
                     <div class="mb-3">
                         <label for="txId" class="form-label">txId</label>
-                        <select id="txId" class="form-select" name="txId">
-                            <option th:each="txId , indice: ${listaNtransacciones}"
-                                    th:text="${txId}"
-                                    th:value="${txId}"></option>
-                        </select>
+                        <input id="txId" class="form-control" name="txId" pattern=".{42}">
                     </div>
 
 
@@ -44,18 +40,26 @@
                         <input type="text" class="form-control" name="neetworkFree" id="neetworkFree">
                     </div>
                     <div class="mb-3">
-                        <label for="block" class="form-label">Bloque</label>
-                        <input type="number" class="form-control" name="block" id="block">
+                        <label for="block" class="form-label">#Bloque</label>
+                        <input type="number" class="form-control" name="block" id="block" pattern="[0-9]{8}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="status" class="form-label">status</label>
+                        <label for="status" class="form-label">Estado</label>
                         <select id="status" class="form-select" name="status">
                             <option th:each="status: ${listaStatus}"
                                     th:text="${status}"
                                     th:value="${status}"></option>
                         </select>
-                    </div>-->
+                    </div>
+                    <div class="mb-3">
+                        <label for="wallet" class="form-label">Billetera</label>
+                        <select id="wallet" class="form-select" name="wallet">
+                            <option th:each="txId , indice: ${listaNtransacciones}"
+                                    th:text="${txId}"
+                                    th:value="${txId}"></option>
+                        </select>
+                    </div>
 
 
                     <a th:href="@{'/transaccion/list'}" class="btn btn-danger">Cancelar</a>

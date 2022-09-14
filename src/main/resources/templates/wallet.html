@@ -23,11 +23,11 @@
     <th class="text-center">Precio de compra (BUSD)</th>
     <th class="text-center">Cantidad Comprada</th>
   </tr>
-  <tr th:each="" >
-    <td class="text-center" ></td>
-    <td class="text-center" ></td>
-    <td class="text-center" ></td>
-    <td class="text-center" ></td>
+  <tr th:each="wall, info : ${listaWallet}" >
+    <td th:text="${wall.getAddress()}" class="text-center" ></td>
+    <td th:text="${wall.getName()}" class="text-center" ></td>
+    <td th:text="${wall.getPurchase_price()}" class="text-center" ></td>
+    <td th:text="${wall.getAmount()}" class="text-center" ></td>
   </tr>
 </table>
 
