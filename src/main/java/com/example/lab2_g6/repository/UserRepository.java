@@ -1,4 +1,14 @@
 package com.example.lab2_g6.repository;
 
-public interface UserRepository {
+import com.example.lab2_g6.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+public interface UserRepository extends JpaRepository<User, Integer>{
+
+    @Query(value = "select * from user\n" +
+            "where username = 'rodrigo2' and password = 'prueba';",nativeQuery = true)
+    User encontrarUsuario(String correo, String contrasena);
 }
