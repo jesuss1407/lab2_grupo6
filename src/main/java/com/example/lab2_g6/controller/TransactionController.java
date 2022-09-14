@@ -27,10 +27,12 @@ public class TransactionController {
     @GetMapping("/new")
     public String nuevoProductoFrm(Model model) {
 
-        model.addAttribute("listaCriptomonedas", transactionRepository.buscarCriptomonedas());
+        model.addAttribute("listaCriptomonedas", currencyRepository.findAll());
         model.addAttribute("listaAmount",transactionRepository.buscarCantidad() );
         model.addAttribute("listaNetwork",transactionRepository.buscarNetwork());
-        model.addAttribute("listaTransapcioes",transactionRepository.buscarTrapsactiones());
+        model.addAttribute("listaTransacciones",transactionRepository.buscarTrapsactiones());
+        model.addAttribute("listaNtransacciones",transactionRepository.numeroTransaccion());
+        model.addAttribute("listaStatus",transactionRepository.buscarStatus());
         return "form";
     }
 
