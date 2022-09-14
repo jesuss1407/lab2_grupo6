@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+        <title>Nuevo Producto</title>
+    </head>
+    <body>
+        <main>
+            <div class="container px-4 py-5 col-lg-4 offset-lg-4">
+                <h1 class="pb-2 mb-3 border-bottom">Nueva transacción </h1>
+                <form method="post" th:action="@{'/transaccion/save'}" class="mt-2">
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descripcción TX</label>
+                        <input type="text" class="form-control" name="description" id="description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="currency" class="form-label">Criptomoneda</label>
+                        <select id="currency" class="form-select" name="currencyr">
+                            <option th:each="currency : ${listaCriptomonedas}"
+                                    th:text="${currency.getName()}"
+                                    th:value="${currency.getId()}"></option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txId" class="form-label">txId</label>
+                        <select id="txId" class="form-select" name="txId">
+                            <option th:each="txId , indice: ${listaNtransacciones}"
+                                    th:text="${txId}"
+                                    th:value="${txId}"></option>
+                        </select>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Cantidad de transacciones</label>
+                        <input type="number" class="form-control" name="amount" id="amount">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="neetworkFree" class="form-label">Comisión de red </label>
+                        <input type="text" class="form-control" name="neetworkFree" id="neetworkFree">
+                    </div>
+                    <div class="mb-3">
+                        <label for="block" class="form-label">Bloque</label>
+                        <input type="number" class="form-control" name="block" id="block">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="status" class="form-label">status</label>
+                        <select id="status" class="form-select" name="status">
+                            <option th:each="status: ${listaStatus}"
+                                    th:text="${status}"
+                                    th:value="${status}"></option>
+                        </select>
+                    </div>-->
+
+
+                    <a th:href="@{'/transaccion/list'}" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </main>
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>

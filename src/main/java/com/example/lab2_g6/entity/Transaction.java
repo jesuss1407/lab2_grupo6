@@ -1,100 +1,50 @@
 package com.example.lab2_g6.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "transaction")
 public class Transaction {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "idtransaction", nullable = false)
-    private Integer id;
+    @Column(name = "idtransaction")
+    private int idtransaction;
 
-    @Column(name = "description", length = 45)
+
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "tx_id", nullable = false, length = 80)
+    @Column(name = "tx_id")
     private String txId;
 
-    @Column(name = "amount", nullable = false)
-    private Double amount;
+    @Column(name = "amount")
+    private double amount;
 
-    @Column(name = "neetwork_free", nullable = false)
-    private Double neetworkFree;
+    @Column(name = "neetwork_free")
+    private double neetworkFree;
 
-    @Column(name = "block", nullable = false)
-    private Integer block;
+    @Column(name = "block")
+    private int block;
 
-    @Column(name = "status", nullable = false, length = 45)
+    @Column(name = "status")
     private String status;
 
-    @Column(name = "currency", nullable = false, length = 45)
+    @Column(name = "currency")
     private String currency;
 
-    public Integer getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn( name ="user_iduser")
+    private User userIduser;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @ManyToOne
+    @JoinColumn(name="wallet_idwallet")
+    private Wallet walletIdwallet;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getTxId() {
-        return txId;
-    }
-
-    public void setTxId(String txId) {
-        this.txId = txId;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public Double getNeetworkFree() {
-        return neetworkFree;
-    }
-
-    public void setNeetworkFree(Double neetworkFree) {
-        this.neetworkFree = neetworkFree;
-    }
-
-    public Integer getBlock() {
-        return block;
-    }
-
-    public void setBlock(Integer block) {
-        this.block = block;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
 
 }

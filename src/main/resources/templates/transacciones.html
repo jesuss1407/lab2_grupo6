@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+          crossorigin="anonymous"></script>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <title>Lista de transacciones </title>
+</head>
+<body class="container-fluid mt-4">
+  <div class="d-flex justify-content-around">
+    <h2 class="text-center mb-4">Lista de transacciones</h2>
+    <a class="btn btn-primary" th:href="@{'/transaccion/new'}">Nueva Transaccion</a>
+  </div>
+
+<table class="table table-dark table-striped">
+  <tr>
+    <th class="text-center">#</th>
+    <th class="text-center">TxID de Wallet</th>
+    <th class="text-center">Cantidad Comprada</th>
+    <th class="text-center">Tarifa de red</th>
+    <th class="text-center"># de bloques</th>
+    <th class="text-center">Criptomoneda</th>
+    <th class="text-center">Status</th>
+    <th class="text-center">Wallet</th>
+
+  </tr>
+  <tr th:each="transaption, info : ${listaTransaption}" >
+    <td th:text="${info.index + 1}" class="text-center" ></td>
+    <td th:text="${transaption.getTxId()}" class="text-center" ></td>
+    <td th:text="${transaption.getAmount()}" class="text-center" ></td>
+    <td th:text="${transaption.getNeetworkFree()}" class="text-center" ></td>
+    <td th:text="${transaption.getBlock()}" class="text-center" ></td>
+    <td th:text="${transaption.getCurrency()}" class="text-center" ></td>
+    <td th:text="${transaption.getStatus()}" class="text-center" ></td>
+    <td th:text="${transaption.getWalletIdwallet()}" class="text-center" ></td>
+  </tr>
+</table>
+
+</body>
+</html>

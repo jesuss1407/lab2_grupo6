@@ -7,8 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
-
     @Query(value = "select * from user\n" +
-            "where username = 'rodrigo2' and password = 'prueba';",nativeQuery = true)
+            "where email = (?1) and password = (?2);",nativeQuery = true)
     User encontrarUsuario(String correo, String contrasena);
 }
