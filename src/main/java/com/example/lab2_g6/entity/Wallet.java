@@ -1,9 +1,6 @@
 package com.example.lab2_g6.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "wallet")
@@ -17,6 +14,10 @@ public class Wallet {
 
     @Column(name = "total_usd", nullable = false, length = 45)
     private String totalUsd;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_iduser", nullable = false)
+    private User userIduser;
 
     public Integer getId() {
         return id;
@@ -40,6 +41,14 @@ public class Wallet {
 
     public void setTotalUsd(String totalUsd) {
         this.totalUsd = totalUsd;
+    }
+
+    public User getUserIduser() {
+        return userIduser;
+    }
+
+    public void setUserIduser(User userIduser) {
+        this.userIduser = userIduser;
     }
 
 }
