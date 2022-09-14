@@ -34,5 +34,10 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
     @Query(value = "select distinct tx_id from transaction;", nativeQuery = true)
     List<String> numeroTransaccion();
 
+    @Query(value = "select * from transaction where idtransaction = ?1",
+            nativeQuery = true)
+    List<Transaction> buscarTrans(int id);
+
+
 
 }

@@ -21,7 +21,8 @@ public class CriptoController {
     @GetMapping("/listar")
     public String index(Model model){
 
-
+        List<Currency> lista = currencyRepository.findAll();
+        model.addAttribute("criptoList", lista);
 
 
         return "principal";
